@@ -10,10 +10,14 @@ namespace IsAbusing
     public class IsAbusingConfiguration : IRocketPluginConfiguration
     {
         public bool debug;
+        public bool ShowInChat;
+        public string Color;
 
        public void LoadDefaults()
         {
-            debug = true;
+            debug = false;
+            ShowInChat = true;
+            Color = "yellow";
         }
     }
 }

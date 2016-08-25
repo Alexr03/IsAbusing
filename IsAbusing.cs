@@ -11,6 +11,7 @@ using UnityEngine;
 using SDG.Unturned;
 using Steamworks;
 using Rocket.Unturned.Chat;
+using Rocket.Core.Logging;
 
 namespace IsAbusing
 {
@@ -48,14 +49,29 @@ namespace IsAbusing
         private void onplayerdeath(UnturnedPlayer player, EDeathCause cause, ELimb limb, CSteamID murderer)
         {
             murderer3 = UnturnedPlayer.FromCSteamID(murderer);
-
-            if (murderer3.GodMode == true)
+            if (Configuration.Instance.ShowInChat == true)
             {
-                UnturnedChat.Say(player.CharacterName + "Died by a player in godmode ABUSER: " + murderer3.CharacterName);
-            }
+                try {
+                        if (murderer3.GodMode == true)
+                        {
+                            UnturnedChat.Say(player.CharacterName + " Died by a player in godmode ABUSER: " + murderer3.CharacterName, UnturnedChat.GetColorFromName(Configuration.Instance.Color, Color.green));
+                        }
+                        else
+                        {
+                            Logger.Log(player.CharacterName + " Died by a player not in godmode");
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        if (Configuration.Instance.debug == true)
+                        {
+                            Logger.LogException(e);
+                        }
+                    }
+                }
             else
             {
-                UnturnedChat.Say(player.CharacterName + " Died by a player not in godmode");
+                Logger.Log("Chat is disabled to show messages.");
             }
         }
     }
