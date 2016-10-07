@@ -56,11 +56,11 @@ namespace IsAbusing
                 player2 = UnturnedPlayer.FromName(command[0]);
                 if (player2.GodMode == true)
                 {
-                    UnturnedChat.Say(player2.CharacterName + "Has godmode enabled");
+                    UnturnedChat.Say(player2.CharacterName + " Has godmode enabled");
                 }
                 else
                 {
-                    UnturnedChat.Say(player2.CharacterName + "Has godmode disabled");
+                    UnturnedChat.Say(player2.CharacterName + " Has godmode disabled");
                 }
             }
         }

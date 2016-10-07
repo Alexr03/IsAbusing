@@ -13,6 +13,7 @@ using Steamworks;
 using Rocket.Unturned.Chat;
 using Rocket.Core.Logging;
 using System.IO;
+using Rocket.Unturned.Commands;
 
 namespace IsAbusing
 {
@@ -28,12 +29,11 @@ namespace IsAbusing
         {
             Instance = this;
             Rocket.Unturned.Events.UnturnedPlayerEvents.OnPlayerDeath += onplayerdeath;
+            Rocket.Core.Logging.Logger.Log("IsAbusing has loaded!");
 
-            Logger.Log("FUCKING LOCATION >> " + directory);
-
-            if (File.Exists(directory + "/Admin-Abuse.txt)"))
+            if (File.Exists(directory + "/Admin-Abuse.txt"))
             {
-
+                Rocket.Core.Logging.Logger.Log(directory + "/Admin-Abuse.txt Already exists, loopholing...");
             }
             else
             {
@@ -44,6 +44,7 @@ namespace IsAbusing
         protected override void Unload()
         {
             Rocket.Unturned.Events.UnturnedPlayerEvents.OnPlayerDeath -= onplayerdeath;
+            Rocket.Core.Logging.Logger.Log("IsAbusing has unloaded!");
         }
 
         private void FixedUpdate()
@@ -65,34 +66,35 @@ namespace IsAbusing
             murderer3 = UnturnedPlayer.FromCSteamID(murderer);
             if (Configuration.Instance.ShowInChat == true)
             {
-                try {
-                        if (murderer3.GodMode == true)
-                        {
-                            UnturnedChat.Say(player.CharacterName + " Died by a player in godmode ABUSER: " + murderer3.CharacterName, UnturnedChat.GetColorFromName(Configuration.Instance.Color, Color.green));
+                if (cause == EDeathCause.SENTRY) { }
+                try
+                {
+                    if (murderer3.GodMode == true)
+                    {
+                        UnturnedChat.Say(player.CharacterName + " Died by a player in godmode ABUSER: " + murderer3.CharacterName, UnturnedChat.GetColorFromName(Configuration.Instance.Color, Color.green));
 
                         using (StreamWriter w = File.AppendText(directory + "/Admin-Abuse.txt"))
                         {
-                            w.WriteLine(player.CharacterName + " Died by a abusive admin! ABUSER: " + murderer3.CharacterName + " Steam64ID: " + murderer3.CSteamID + "\n)");
+                            w.WriteLine(player.CharacterName + " Died by a abusive admin! ABUSER: " + murderer3.CharacterName + " Steam64ID: " + murderer3.CSteamID + w.NewLine);
                             w.Close();
                         }
-
                     }
-                        else
-                        {
-                            Logger.Log(player.CharacterName + " Died by a player not in godmode");
-                        }
-                    }
-                    catch (Exception e)
+                    else
                     {
-                        if (Configuration.Instance.debug == true)
-                        {
-                            Logger.LogException(e);
-                        }
+                        Rocket.Core.Logging.Logger.Log(player.CharacterName + " Died by a player not in godmode");
                     }
+                }
+                catch (Exception e)
+                {
+                    if (Configuration.Instance.debug == true)
+                    {
+                        Rocket.Core.Logging.Logger.LogException(e);
+                    }
+                }
                 }
             else
             {
-                Logger.Log("Chat is disabled to show messages.");
+                Rocket.Core.Logging.Logger.Log("Chat is disabled to show messages.");
             }
         }
     }

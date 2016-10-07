@@ -13,7 +13,7 @@ namespace IsAbusing
         public bool ShowInChat;
         public string Color;
 
-       public void LoadDefaults()
+        public void LoadDefaults()
         {
             debug = false;
             ShowInChat = true;

@@ -56,11 +56,11 @@ namespace IsAbusing
                 player2 = UnturnedPlayer.FromName(command[0]);
                 if (player2.VanishMode == true)
                 {
-                    UnturnedChat.Say(player2.CharacterName + "Has vanish enabled");
+                    UnturnedChat.Say(player2.CharacterName + " Has vanish enabled");
                 }
                 else
                 {
-                    UnturnedChat.Say(player2.CharacterName + "Has vanish disabled");
+                    UnturnedChat.Say(player2.CharacterName + " Has vanish disabled");
                 }
             }
 
