@@ -27,7 +27,7 @@ namespace IsAbusing
 
         public string Syntax
         {
-            get { return "/isgod <player>"; }
+            get { return "[Player]"; }
         }
 
         public List<string> Aliases
