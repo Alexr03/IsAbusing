@@ -70,7 +70,7 @@ namespace IsAbusing
                 {
                     if (murderer3.GodMode == true)
                     {
-                        UnturnedChat.Say(player.CharacterName + " Died by a player in godmode ABUSER: " + murderer3.CharacterName, UnturnedChat.GetColorFromName(Configuration.Instance.Color, Color.green));
+                        UnturnedChat.Say(System.DateTime.Now + player.CharacterName + " Died by a player in godmode ABUSER: " + murderer3.CharacterName, UnturnedChat.GetColorFromName(Configuration.Instance.Color, Color.green));
 
                         using (StreamWriter w = File.AppendText(directory + "/Admin-Abuse.txt"))
                         {

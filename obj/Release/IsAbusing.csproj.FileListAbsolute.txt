@@ -14,3 +14,4 @@ C:\Users\Alex\Documents\Visual Studio 2015\Projects\IsAbusing\IsAbusing\bin\Rele
 C:\Users\Alex\Documents\Visual Studio 2015\Projects\IsAbusing\IsAbusing\obj\Release\IsAbusing.csprojResolveAssemblyReference.cache
 C:\Users\Alex\Documents\Visual Studio 2015\Projects\IsAbusing\IsAbusing\obj\Release\IsAbusing.dll
 C:\Users\Alex\Documents\Visual Studio 2015\Projects\IsAbusing\IsAbusing\obj\Release\IsAbusing.pdb
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\IsAbusing\IsAbusing\bin\Release\LYHMEAPI.dll
