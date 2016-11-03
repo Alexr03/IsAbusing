@@ -39,9 +39,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
-    <Reference Include="LYHMEAPI">
-      <HintPath>lib\LYHMEAPI.dll</HintPath>
-    </Reference>
     <Reference Include="Rocket.API, Version=2.6.4.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Rocket.API.dll</HintPath>
