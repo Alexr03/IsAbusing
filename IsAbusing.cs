@@ -59,7 +59,6 @@ namespace IsAbusing
                 };
             }
         }
-
         private void onplayerdeath(UnturnedPlayer player, EDeathCause cause, ELimb limb, CSteamID murderer)
         {
             murderer3 = UnturnedPlayer.FromCSteamID(murderer);
@@ -70,11 +69,21 @@ namespace IsAbusing
                 {
                     if (murderer3.GodMode == true)
                     {
-                        UnturnedChat.Say(System.DateTime.Now + player.CharacterName + " Died by a player in godmode ABUSER: " + murderer3.CharacterName, UnturnedChat.GetColorFromName(Configuration.Instance.Color, Color.green));
+                        UnturnedChat.Say(player.CharacterName + " died by a player in godmode ABUSER: " + murderer3.CharacterName, UnturnedChat.GetColorFromName(Configuration.Instance.Color, Color.green));
 
                         using (StreamWriter w = File.AppendText(directory + "/Admin-Abuse.txt"))
                         {
-                            w.WriteLine(player.CharacterName + " Died by a abusive admin! ABUSER: " + murderer3.CharacterName + " Steam64ID: " + murderer3.CSteamID + w.NewLine);
+                            w.WriteLine(player.CharacterName + " died by a abusive admin! ABUSER: " + murderer3.CharacterName + " Steam64ID: " + murderer3.CSteamID + w.NewLine);
+                            w.Close();
+                        }
+                    }
+                    else if (murderer3.VanishMode == true)
+                    {
+                        UnturnedChat.Say(player.CharacterName + " died by a player in vanish mode ABUSER: " + murderer3.CharacterName, UnturnedChat.GetColorFromName(Configuration.Instance.Color, Color.green));
+
+                        using (StreamWriter w = File.AppendText(directory + "/Admin-Abuse.txt"))
+                        {
+                            w.WriteLine(player.CharacterName + " died by a abusive admin! ABUSER: " + murderer3.CharacterName + " Steam64ID: " + murderer3.CSteamID + w.NewLine);
                             w.Close();
                         }
                     }
@@ -90,7 +99,7 @@ namespace IsAbusing
                         Rocket.Core.Logging.Logger.LogException(e);
                     }
                 }
-                }
+            }
             else
             {
                 Rocket.Core.Logging.Logger.Log("Chat is disabled to show messages.");
