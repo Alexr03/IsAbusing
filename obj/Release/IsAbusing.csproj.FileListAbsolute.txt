@@ -8,3 +8,22 @@ C:\Users\Alex\Documents\Visual Studio 2015\Projects\IsAbusing\IsAbusing\bin\Rele
 C:\Users\Alex\Documents\Visual Studio 2015\Projects\IsAbusing\IsAbusing\obj\Release\IsAbusing.csprojResolveAssemblyReference.cache
 C:\Users\Alex\Documents\Visual Studio 2015\Projects\IsAbusing\IsAbusing\obj\Release\IsAbusing.dll
 C:\Users\Alex\Documents\Visual Studio 2015\Projects\IsAbusing\IsAbusing\obj\Release\IsAbusing.pdb
+D:\Gereksizler\GitHub\IsAbusing\bin\Release\IsAbusing.dll
+D:\Gereksizler\GitHub\IsAbusing\bin\Release\IsAbusing.pdb
+D:\Gereksizler\GitHub\IsAbusing\bin\Release\Pathfinding.JsonFx.dll
+D:\Gereksizler\GitHub\IsAbusing\bin\Release\Pathfinding.Ionic.Zip.Reduced.dll
+D:\Gereksizler\GitHub\IsAbusing\bin\Release\Pathfinding.ClipperLib.dll
+D:\Gereksizler\GitHub\IsAbusing\bin\Release\Pathfinding.Poly2Tri.dll
+D:\Gereksizler\GitHub\IsAbusing\bin\Release\UnityEngine.CrashLog.dll
+D:\Gereksizler\GitHub\IsAbusing\obj\Release\IsAbusing.csprojAssemblyReference.cache
+D:\Gereksizler\GitHub\IsAbusing\obj\Release\IsAbusing.csproj.CoreCompileInputs.cache
+D:\Gereksizler\GitHub\IsAbusing\obj\Release\IsAbusing.csproj.CopyComplete
+D:\Gereksizler\GitHub\IsAbusing\obj\Release\IsAbusing.dll
+D:\Gereksizler\GitHub\IsAbusing\obj\Release\IsAbusing.pdb
+D:\Gereksizler\GitHub\IsAbusing\bin\Release\Assembly-CSharp-firstpass.dll
+D:\Gereksizler\GitHub\IsAbusing\bin\Release\Assembly-CSharp.dll
+D:\Gereksizler\GitHub\IsAbusing\bin\Release\Rocket.API.dll
+D:\Gereksizler\GitHub\IsAbusing\bin\Release\Rocket.Core.dll
+D:\Gereksizler\GitHub\IsAbusing\bin\Release\Rocket.Unturned.dll
+D:\Gereksizler\GitHub\IsAbusing\bin\Release\UnityEngine.CoreModule.dll
+D:\Gereksizler\GitHub\IsAbusing\bin\Release\UnityEngine.dll
