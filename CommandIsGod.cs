@@ -50,9 +50,9 @@ namespace IsAbusing
 
         public void Execute(IRocketPlayer caller, string[] command)
         {
-            if (command.Length == 1)
+            player2 = UnturnedPlayer.FromName(command[0]);
+            if (player2 != null)
             {
-                player2 = UnturnedPlayer.FromName(command[0]);
                 if (player2.GodMode == true)
                 {
                     UnturnedChat.Say(player2.CharacterName + " Has godmode enabled");
@@ -61,6 +61,11 @@ namespace IsAbusing
                 {
                     UnturnedChat.Say(player2.CharacterName + " Has godmode disabled");
                 }
+            }
+            else
+            {
+                UnturnedChat.Say("You may not have entered a player's name correctly or they are not in the server!");
+                UnturnedChat.Say("Correct usage: /isgod PLAYERNAME");
             }
         }
     }

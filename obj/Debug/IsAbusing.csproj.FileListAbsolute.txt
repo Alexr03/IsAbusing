@@ -15,3 +15,22 @@ c:\users\alex\documents\visual studio 2015\Projects\IsAbusing\IsAbusing\bin\Debu
 c:\users\alex\documents\visual studio 2015\Projects\IsAbusing\IsAbusing\obj\Debug\IsAbusing.csprojResolveAssemblyReference.cache
 c:\users\alex\documents\visual studio 2015\Projects\IsAbusing\IsAbusing\obj\Debug\IsAbusing.dll
 c:\users\alex\documents\visual studio 2015\Projects\IsAbusing\IsAbusing\obj\Debug\IsAbusing.pdb
+E:\Development\IsAbusing\bin\Debug\IsAbusing.dll
+E:\Development\IsAbusing\bin\Debug\IsAbusing.pdb
+E:\Development\IsAbusing\bin\Debug\Assembly-CSharp-firstpass.dll
+E:\Development\IsAbusing\bin\Debug\Assembly-CSharp.dll
+E:\Development\IsAbusing\bin\Debug\Rocket.API.dll
+E:\Development\IsAbusing\bin\Debug\Rocket.Core.dll
+E:\Development\IsAbusing\bin\Debug\Rocket.Unturned.dll
+E:\Development\IsAbusing\bin\Debug\UnityEngine.CoreModule.dll
+E:\Development\IsAbusing\bin\Debug\UnityEngine.dll
+E:\Development\IsAbusing\bin\Debug\Pathfinding.JsonFx.dll
+E:\Development\IsAbusing\bin\Debug\Pathfinding.Ionic.Zip.Reduced.dll
+E:\Development\IsAbusing\bin\Debug\Pathfinding.ClipperLib.dll
+E:\Development\IsAbusing\bin\Debug\Pathfinding.Poly2Tri.dll
+E:\Development\IsAbusing\bin\Debug\UnityEngine.CrashLog.dll
+E:\Development\IsAbusing\obj\Debug\IsAbusing.csprojAssemblyReference.cache
+E:\Development\IsAbusing\obj\Debug\IsAbusing.csproj.CoreCompileInputs.cache
+E:\Development\IsAbusing\obj\Debug\IsAbusing.csproj.CopyComplete
+E:\Development\IsAbusing\obj\Debug\IsAbusing.dll
+E:\Development\IsAbusing\obj\Debug\IsAbusing.pdb
