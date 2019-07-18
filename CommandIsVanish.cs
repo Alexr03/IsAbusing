@@ -1,13 +1,7 @@
 ﻿using Rocket.API;
 using Rocket.Unturned.Chat;
 using Rocket.Unturned.Player;
-using SDG.Provider;
-using SDG.Unturned;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
 
 namespace IsAbusing
 {
@@ -17,7 +11,7 @@ namespace IsAbusing
 
         public string Help
         {
-            get { return "See's if the user is in vanish."; }
+            get { return "See if the user is in vanish."; }
         }
 
         public string Name
@@ -54,18 +48,19 @@ namespace IsAbusing
             player2 = UnturnedPlayer.FromName(command[0]);
             if (player2 != null)
             {
-                if (player2.VanishMode == true)
+                if (player2.VanishMode)
                 {
-                    UnturnedChat.Say(player2.CharacterName + " Has vanish enabled");
+                    UnturnedChat.Say(caller, player2.CharacterName + " has vanish enabled");
                 }
                 else
                 {
-                    UnturnedChat.Say(player2.CharacterName + " Has vanish disabled");
+                    UnturnedChat.Say(caller, player2.CharacterName + " has vanish disabled");
                 }
             }
             else
             {
-                UnturnedChat.Say("You may not have entered a player's name correctly or they are not in the server! \nCorrect usage: /isvanish PLAYERNAME");
+                UnturnedChat.Say(caller, "You may not have entered a player's name correctly or they are not in the server!");
+                UnturnedChat.Say(caller, "Correct usage: /isvanish PLAYERNAME");
             }
 
         }
