@@ -20,6 +20,7 @@ namespace IsAbusing
         {
             Instance = this;
             Rocket.Unturned.Events.UnturnedPlayerEvents.OnPlayerDeath += onPlayerDeath;
+            ChatManager.onChatted += OnChatted;
             Rocket.Core.Logging.Logger.Log("IsAbusing has loaded!");
 
             if (File.Exists(directory + "/Admin-Abuse.txt"))
@@ -48,42 +49,72 @@ namespace IsAbusing
                 };
             }
         }
+
+        private void OnChatted(SteamPlayer player, EChatMode mode, ref Color chatted, ref bool isrich, string text, ref bool isvisible)
+        {
+            if (Configuration.Instance.ShowHeal)
+            {
+                if (text.Contains("/heal"))
+                {
+                    UnturnedPlayer player2 = UnturnedPlayer.FromSteamPlayer(player);
+                    UnturnedChat.Say($"{player2.DisplayName} has used /heal!");
+                }
+            }
+
+
+        }
         private void onPlayerDeath(UnturnedPlayer player, EDeathCause cause, ELimb limb, CSteamID murderer)
         {
             UnturnedPlayer murderer3 = UnturnedPlayer.FromCSteamID(murderer);
-            if (Configuration.Instance.ShowInChat == true)
+            if (Configuration.Instance.ShowInChat)
             {
                 if (cause == EDeathCause.SENTRY) return;
                 try
                 {
-                    if (murderer3.GodMode == true)
+                    if(Configuration.Instance.ShowGodemode)
                     {
-                        UnturnedChat.Say(player.CharacterName + " died by a player in godmode ABUSER: " + murderer3.CharacterName, UnturnedChat.GetColorFromName(Configuration.Instance.Color, Color.green));
-
-                        using (StreamWriter w = File.AppendText(directory + "/Admin-Abuse.txt"))
+                        if (murderer3.GodMode)
                         {
-                            w.WriteLine(player.CharacterName + " died by a abusive admin! ABUSER: " + murderer3.CharacterName + " Steam64ID: " + murderer3.CSteamID + w.NewLine);
-                            w.Close();
+                            if (murderer3.IsInVehicle)
+                            {
+                                UnturnedChat.Say(player.CharacterName + " was roadkilled by " + murderer3.CharacterName + " in godmode! VEHICLE: " + murderer3.CurrentVehicle, UnturnedChat.GetColorFromName(Configuration.Instance.Color, Color.green));
+                            }
+                            else
+                            {
+                                UnturnedChat.Say(player.CharacterName + " died by " + murderer3.CharacterName + " in godmode!", UnturnedChat.GetColorFromName(Configuration.Instance.Color, Color.green));
+                            }
+
+                            using (StreamWriter w = File.AppendText(directory + "/Admin-Abuse.txt"))
+                            {
+                                w.WriteLine(player.CharacterName + " died by a abusive admin! ABUSER: " + murderer3.CharacterName + " Steam64ID: " + murderer3.CSteamID + w.NewLine);
+                                w.Close();
+                            }
                         }
                     }
-                    else if (murderer3.VanishMode == true)
+                    if(Configuration.Instance.ShowVanish)
                     {
-                        UnturnedChat.Say(player.CharacterName + " died by a player in vanish mode ABUSER: " + murderer3.CharacterName, UnturnedChat.GetColorFromName(Configuration.Instance.Color, Color.green));
-
-                        using (StreamWriter w = File.AppendText(directory + "/Admin-Abuse.txt"))
+                        if (murderer3.VanishMode)
                         {
-                            w.WriteLine(player.CharacterName + " died by a abusive admin! ABUSER: " + murderer3.CharacterName + " Steam64ID: " + murderer3.CSteamID + w.NewLine);
-                            w.Close();
+                            if (murderer3.IsInVehicle)
+                            {
+                                UnturnedChat.Say(player.CharacterName + " was roadkilled by " + murderer3.CharacterName + " in vanish mode! VEHICLE: " + murderer3.CurrentVehicle, UnturnedChat.GetColorFromName(Configuration.Instance.Color, Color.green));
+                            }
+                            else
+                            {
+                                UnturnedChat.Say(player.CharacterName + " died by " + murderer3.CharacterName + " in vanish mode!", UnturnedChat.GetColorFromName(Configuration.Instance.Color, Color.green));
+                            }
+
+                            using (StreamWriter w = File.AppendText(directory + "/Admin-Abuse.txt"))
+                            {
+                                w.WriteLine(player.CharacterName + " died by a abusive admin! ABUSER: " + murderer3.CharacterName + " Steam64ID: " + murderer3.CSteamID + w.NewLine);
+                                w.Close();
+                            }
                         }
-                    }
-                    else
-                    {
-                        Rocket.Core.Logging.Logger.Log(player.CharacterName + " Died by a player not in godmode");
                     }
                 }
                 catch (Exception e)
                 {
-                    if (Configuration.Instance.debug == true)
+                    if (Configuration.Instance.debug)
                     {
                         Rocket.Core.Logging.Logger.LogException(e);
                     }
