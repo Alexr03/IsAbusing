@@ -1,13 +1,7 @@
 ﻿using Rocket.API;
 using Rocket.Unturned.Chat;
 using Rocket.Unturned.Player;
-using SDG.Provider;
-using SDG.Unturned;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
 
 namespace IsAbusing
 {
@@ -53,19 +47,19 @@ namespace IsAbusing
             player2 = UnturnedPlayer.FromName(command[0]);
             if (player2 != null)
             {
-                if (player2.GodMode == true)
+                if (player2.GodMode)
                 {
-                    UnturnedChat.Say(player2.CharacterName + " Has godmode enabled");
+                    UnturnedChat.Say(caller, player2.CharacterName + " Has godmode enabled");
                 }
                 else
                 {
-                    UnturnedChat.Say(player2.CharacterName + " Has godmode disabled");
+                    UnturnedChat.Say(caller, player2.CharacterName + " Has godmode disabled");
                 }
             }
             else
             {
-                UnturnedChat.Say("You may not have entered a player's name correctly or they are not in the server!");
-                UnturnedChat.Say("Correct usage: /isgod PLAYERNAME");
+                UnturnedChat.Say(caller, "You may not have entered a player's name correctly or they are not in the server!");
+                UnturnedChat.Say(caller, "Correct usage: /isgod PLAYERNAME");
             }
         }
     }

@@ -1,18 +1,12 @@
 ﻿using Rocket.Core.Plugins;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Rocket.API.Collections;
-using Rocket.Unturned;
 using Rocket.Unturned.Player;
 using UnityEngine;
 using SDG.Unturned;
 using Steamworks;
 using Rocket.Unturned.Chat;
-using Rocket.Core.Logging;
 using System.IO;
-using Rocket.Unturned.Commands;
 
 namespace IsAbusing
 {
@@ -22,12 +16,10 @@ namespace IsAbusing
 
         public string directory = System.IO.Directory.GetCurrentDirectory() + "/..";
 
-        public static UnturnedPlayer murderer3;
-
         protected override void Load()
         {
             Instance = this;
-            Rocket.Unturned.Events.UnturnedPlayerEvents.OnPlayerDeath += onplayerdeath;
+            Rocket.Unturned.Events.UnturnedPlayerEvents.OnPlayerDeath += onPlayerDeath;
             Rocket.Core.Logging.Logger.Log("IsAbusing has loaded!");
 
             if (File.Exists(directory + "/Admin-Abuse.txt"))
@@ -42,14 +34,11 @@ namespace IsAbusing
 
         protected override void Unload()
         {
-            Rocket.Unturned.Events.UnturnedPlayerEvents.OnPlayerDeath -= onplayerdeath;
+            Rocket.Unturned.Events.UnturnedPlayerEvents.OnPlayerDeath -= onPlayerDeath;
             Rocket.Core.Logging.Logger.Log("IsAbusing has unloaded!");
         }
 
-        private void FixedUpdate()
-        {
-
-        }
+        private void FixedUpdate() { }
 
         public override TranslationList DefaultTranslations
         {
@@ -59,12 +48,12 @@ namespace IsAbusing
                 };
             }
         }
-        private void onplayerdeath(UnturnedPlayer player, EDeathCause cause, ELimb limb, CSteamID murderer)
+        private void onPlayerDeath(UnturnedPlayer player, EDeathCause cause, ELimb limb, CSteamID murderer)
         {
-            murderer3 = UnturnedPlayer.FromCSteamID(murderer);
+            UnturnedPlayer murderer3 = UnturnedPlayer.FromCSteamID(murderer);
             if (Configuration.Instance.ShowInChat == true)
             {
-                if (cause == EDeathCause.SENTRY) { }
+                if (cause == EDeathCause.SENTRY) return;
                 try
                 {
                     if (murderer3.GodMode == true)
